@@ -1,0 +1,8 @@
+ul.players-list {
+    padding: 0;
+}
+
+ul.players-list > li {
+    list-style: none;
+    padding: 7px 5px 7px 20px;
+}    

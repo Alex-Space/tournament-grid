@@ -1,18 +1,42 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Sidebar from './components/Sidebar/index';
+import SidebarHeader from './components/Sidebar/SidebarHeader/SidebarHeader';
+import SidebarPlayers from './components/Sidebar/SidebarPlayers/SidebarPlayers';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      sidebarOpen: true
+    }
+
+    this.onSetSidebarOpen = this.onSetSidebarOpen.bind(this);
+  }
+
+  onSetSidebarOpen(open) {
+    this.setState({sidebarOpen: open});
+  }
+
   render() {
+    const sidebarContent = (
+      <div>
+        <SidebarHeader />
+        <SidebarPlayers />
+      </div>
+    );
+
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+
+        <Sidebar 
+              sidebar={sidebarContent}
+              open={this.state.sidebarOpen}
+              onSetOpen={this.onSetSidebarOpen}
+              docked={true}>
+          <b>Main content</b>
+        </Sidebar>
+
       </div>
     );
   }
