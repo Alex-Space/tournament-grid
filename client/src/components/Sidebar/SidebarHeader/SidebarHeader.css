@@ -1,4 +1,34 @@
 .sidebar-header {
+    border-bottom: 1px solid #040404;
+}
+
+.sidebar-header h3 {
+    font-family: 'Lobster', cursive;
+    font-size: 25px;
+    margin: 10px 0;
     padding: 0 0 0 20px;
-    border-bottom: 1px solid #F7DBA7;
+}
+
+.game-type-container {
+    background: #343434;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+.game-type-container div {
+    font-family: 'Lobster', cursive;
+    padding: 4px;
+    box-sizing: border-box;
+    text-align: center;
+    cursor: pointer;
+    user-select: none;
+    border-right: 2px solid transparent;
+    border-left: 2px solid transparent;
+}
+
+.game-type-container div.active {
+    background: #a94444;
+    border-right: 2px solid #101819;
+    border-left: 2px solid #101819;
 }

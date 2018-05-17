@@ -128,12 +128,12 @@ class Sidebar extends Component {
   onTouchEnd() {
     if (this.isTouching()) {
       // trigger a change to open if sidebar has been dragged beyond dragToggleDistance
-      const touchWidth = this.touchSidebarWidth();
+      // const touchWidth = this.touchSidebarWidth();
 
-      if (this.props.open && touchWidth < this.state.sidebarWidth - this.props.dragToggleDistance ||
-          !this.props.open && touchWidth > this.props.dragToggleDistance) {
-        this.props.onSetOpen(!this.props.open);
-      }
+      // if (this.props.open && touchWidth < this.state.sidebarWidth - this.props.dragToggleDistance ||
+      //     !this.props.open && touchWidth > this.props.dragToggleDistance) {
+      //   this.props.onSetOpen(!this.props.open);
+      // }
 
       this.setState({
         touchIdentifier: null,

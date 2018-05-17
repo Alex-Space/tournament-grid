@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Sidebar from './components/Sidebar/index';
 import SidebarHeader from './components/Sidebar/SidebarHeader/SidebarHeader';
 import SidebarPlayers from './components/Sidebar/SidebarPlayers/SidebarPlayers';
+import MainContentArea from './components/MainContentArea/MainContentArea';
 
 class App extends Component {
   constructor(props) {
@@ -34,7 +35,7 @@ class App extends Component {
               open={this.state.sidebarOpen}
               onSetOpen={this.onSetSidebarOpen}
               docked={true}>
-          <b>Main content</b>
+              <MainContentArea />
         </Sidebar>
 
       </div>
