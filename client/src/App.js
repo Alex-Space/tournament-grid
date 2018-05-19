@@ -3,13 +3,16 @@ import Sidebar from './components/Sidebar/index';
 import SidebarHeader from './components/Sidebar/SidebarHeader/SidebarHeader';
 import SidebarPlayers from './components/Sidebar/SidebarPlayers/SidebarPlayers';
 import MainContentArea from './components/MainContentArea/MainContentArea';
+import { connect } from 'react-redux';
+import { gameType } from './actions';
 
 class App extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      sidebarOpen: true
+      sidebarOpen: true,
+      grid: '1 vs 1'
     }
 
     this.onSetSidebarOpen = this.onSetSidebarOpen.bind(this);
@@ -19,6 +22,11 @@ class App extends Component {
     this.setState({sidebarOpen: open});
   }
 
+  componentWillMount = () => {
+    // this.props.getCurrentGrid(this.props.grid);
+    // console.log(this.props);
+  }
+
   render() {
     const sidebarContent = (
       <div>
@@ -26,7 +34,7 @@ class App extends Component {
         <SidebarPlayers />
       </div>
     );
-
+console.log(this.props);
     return (
       <div className="App">
 
@@ -43,4 +51,20 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  console.log(state);
+  return {
+    currentGrid: state.grid
+  }
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getCurrentGrid: () => {
+      dispatch( gameType() );
+    }
+  }
+};
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

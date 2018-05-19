@@ -5,8 +5,8 @@
 .sidebar-header h3 {
     font-family: 'Lobster', cursive;
     font-size: 25px;
-    margin: 10px 0;
-    padding: 0 0 0 20px;
+    margin: 0 0 7px;
+    padding: 0 0 0 10px;
 }
 
 .game-type-container {
@@ -31,4 +31,15 @@
     background: #a94444;
     border-right: 2px solid #101819;
     border-left: 2px solid #101819;
+}
+
+.image {
+    background: url(./img/tank.png);
+    width: 40px;
+    height: 33px;
+    margin-right: 5px;
+    position: relative;
+    top: 2px;
+    display: inline-block;
+    background-size: cover;
 }

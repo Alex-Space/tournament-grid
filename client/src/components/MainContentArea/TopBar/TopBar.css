@@ -1,0 +1,9 @@
+.top-bar {
+    background: #343434;
+    font-family: 'Lobster', cursive;
+    color: rgb(247, 219, 167);
+    min-height: 28px;
+    padding-left: 10px;
+    padding-top: 4px;
+    box-sizing: border-box;
+}

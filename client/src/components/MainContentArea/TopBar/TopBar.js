@@ -1,8 +1,9 @@
 import React from 'react';
+import './TopBar.css';
 
 const topBar = (props) => {
     return (
-        <p>Top Bar</p>
+        <div className='top-bar'>Top Bar</div>
     );
 }
 
