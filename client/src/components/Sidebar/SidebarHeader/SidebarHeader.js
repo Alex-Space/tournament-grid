@@ -7,28 +7,21 @@ import { gameType } from '../../../actions';
 
 class SidebarHeader extends Component {
 
-    state = {
-        gameTypes: [ '1 vs 1', '2 vs 2', '3 vs 3', '5 vs 5'],
-        gameTypeSelected: '1 vs 1'
-    };
-
     setActiveGrid = (el) => {
-        this.props.getCurrentGrid(el);
+        this.props.setCurrentGrid(el);
     }
 
     render() {
-        const newState = {...this.state};
-        console.log(this.props);
         return (
             <header className='sidebar-header'>
                 <div className='game-type-container'>
 
-                    {newState.gameTypes.map(( el, index ) => {
+                    {this.props.gameTypes.map(( el, index ) => {
                         return (
                             <GameTypeBtn 
                                 key={index} 
                                 gameType={el} 
-                                isActive={el === newState.gameTypeSelected ? true : false }
+                                isActive={el === this.props.gameTypeSelected ? true : false }
                                 onClick={() => this.setActiveGrid(el)} />
                         )
                     })}
@@ -42,13 +35,14 @@ class SidebarHeader extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        gameTypeSelected: state.payload
+        gameTypeSelected: state.grids.gameTypeSelected,
+        gameTypes: state.grids.gameTypes
     }
 };
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        getCurrentGrid: (gameTypeSelected) => {
+        setCurrentGrid: (gameTypeSelected) => {
             dispatch( gameType(gameTypeSelected) );
         }
     }
