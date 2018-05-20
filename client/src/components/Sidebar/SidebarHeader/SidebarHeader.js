@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
-// import FontAwesome from 'react-fontawesome';
 import './SidebarHeader.css';
 import GameTypeBtn from './GameTypeBtn/GameTypeBtn';
+
+import { connect } from 'react-redux';
+import { gameType } from '../../../actions';
 
 class SidebarHeader extends Component {
 
@@ -11,11 +13,12 @@ class SidebarHeader extends Component {
     };
 
     setActiveGrid = (el) => {
-        this.setState({gameTypeSelected: el});
+        this.props.getCurrentGrid(el);
     }
 
     render() {
         const newState = {...this.state};
+        console.log(this.props);
         return (
             <header className='sidebar-header'>
                 <div className='game-type-container'>
@@ -37,4 +40,18 @@ class SidebarHeader extends Component {
     };
 }
 
-export default SidebarHeader;
+const mapStateToProps = (state) => {
+    return {
+        gameTypeSelected: state.payload
+    }
+};
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        getCurrentGrid: (gameTypeSelected) => {
+            dispatch( gameType(gameTypeSelected) );
+        }
+    }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(SidebarHeader);
