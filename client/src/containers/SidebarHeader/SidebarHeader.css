@@ -16,23 +16,6 @@
     justify-content: space-between;
 }
 
-.game-type-container div {
-    font-family: 'Lobster', cursive;
-    padding: 4px;
-    box-sizing: border-box;
-    text-align: center;
-    cursor: pointer;
-    user-select: none;
-    border-right: 2px solid transparent;
-    border-left: 2px solid transparent;
-}
-
-.game-type-container div.active {
-    background: #a94444;
-    border-right: 2px solid #101819;
-    border-left: 2px solid #101819;
-}
-
 .image {
     background: url(./img/tank.png);
     width: 40px;

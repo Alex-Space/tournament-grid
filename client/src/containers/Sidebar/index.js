@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Sidebar from './sidebar';
-import SidebarHeader from './SidebarHeader/SidebarHeader';
-import SidebarPlayers from './SidebarPlayers/SidebarPlayers';
+import SidebarHeader from '../SidebarHeader/SidebarHeader';
+import SidebarPlayers from '../../components/SidebarPlayers/SidebarPlayers';
 
 class modifiedSidebar extends Component {
     constructor(props) {
@@ -36,6 +36,5 @@ class modifiedSidebar extends Component {
         )
     }
 };
-
 
 export default modifiedSidebar;

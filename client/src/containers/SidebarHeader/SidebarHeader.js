@@ -1,14 +1,15 @@
 import React, {Component} from 'react';
+import GameTypeBtn from '../../components/GameTypeBtn/GameTypeBtn';
 import './SidebarHeader.css';
-import GameTypeBtn from './GameTypeBtn/GameTypeBtn';
 
 import { connect } from 'react-redux';
-import { gameType } from '../../../actions';
+import { bindActionCreators } from 'redux';
+import { gameType } from '../../actions';
 
 class SidebarHeader extends Component {
 
     setActiveGrid = (el) => {
-        this.props.setCurrentGrid(el);
+        this.props.gameType(el);
     }
 
     render() {
@@ -41,11 +42,14 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = (dispatch) => {
-    return {
-        setCurrentGrid: (gameTypeSelected) => {
-            dispatch( gameType(gameTypeSelected) );
-        }
-    }
+    return bindActionCreators({
+        gameType
+    }, dispatch);
+    // return {
+    //     setCurrentGrid: (gameTypeSelected) => {
+    //         dispatch( gameType(gameTypeSelected) );
+    //     }
+    // }
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(SidebarHeader);
