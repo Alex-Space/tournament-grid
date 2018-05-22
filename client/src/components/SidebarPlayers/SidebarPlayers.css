@@ -9,11 +9,16 @@ ul.players-list > li {
 }
 
 ul.players-list > li:nth-of-type(odd) {
-    background: #131313;
-    border-bottom: 2px solid #1b1a1a;
+    background: #191818;
+    border-bottom: 2px solid #131212;
+    border-right: 1px solid #131212;
 }
 
+ul.players-list > li:first-of-type {
+    border-top: 2px solid #212121;
+}
 ul.players-list > li:nth-of-type(even) {
     background: #131313;
-    border-bottom: 2px solid #1f1f1f;
+    border-bottom: 2px solid #212121;
+    box-shadow: inset 3px 0px 10px #0e0e0e;
 }

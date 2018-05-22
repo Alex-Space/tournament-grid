@@ -14,7 +14,7 @@ const defaultStyles = {
   },
   sidebar: {
     zIndex: 2,
-    width: '200px',
+    width: '210px',
     position: 'absolute',
     top: 0,
     bottom: 0,
@@ -22,7 +22,7 @@ const defaultStyles = {
     WebkitTransition: '-webkit-transform .3s ease-out',
     willChange: 'transform',
     overflowY: 'auto',
-    backgroundColor: '#130303',
+    backgroundColor: '#131313',
     color: '#F7DBA7',
   },
   content: {
@@ -239,14 +239,14 @@ class Sidebar extends Component {
       sidebarStyle.transform = 'translateX(100%)';
       sidebarStyle.WebkitTransform = 'translateX(100%)';
       if (this.props.shadow) {
-        sidebarStyle.boxShadow = '-2px 2px 4px rgba(0, 0, 0, 0.15)';
+        sidebarStyle.boxShadow = '-2px 2px 4px rgba(0, 0, 0, 0.35)';
       }
     } else {
       sidebarStyle.left = 0;
       sidebarStyle.transform = 'translateX(-100%)';
       sidebarStyle.WebkitTransform = 'translateX(-100%)';
       if (this.props.shadow) {
-        sidebarStyle.boxShadow = '2px 2px 4px rgba(0, 0, 0, 0.15)';
+        sidebarStyle.boxShadow = '2px 2px 4px rgba(0, 0, 0, 0.35)';
       }
     }
 

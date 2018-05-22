@@ -19,11 +19,6 @@ const sidebarPlayers = (props) => {
             <li>Игрок 13</li>
             <li>Игрок 14</li>
             <li>Игрок 15</li>
-            <li>Игрок 16</li>
-            <li>Игрок 17</li>
-            <li>Игрок 18</li>
-            <li>Игрок 19</li>
-            <li>Игрок 20</li>
         </ul>
     );
 }
