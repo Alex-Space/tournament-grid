@@ -8,6 +8,8 @@
     margin-bottom: 46px;
     box-sizing: border-box;
     min-width: 710px;
+    display: flex;
+    justify-content: space-between;
 }
 
 .top-bar h2 {

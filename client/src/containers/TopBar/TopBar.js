@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import { bindActionCreators } from 'redux';
 import './TopBar.css';
+import DateSelector from '../../components/DateSelector/DateSelector';
 
 class TopBar extends Component {
 
@@ -24,6 +25,7 @@ class TopBar extends Component {
         return (
             <div className='top-bar'>
                 <h2>{this.getCurrendGrid()}</h2>
+                <DateSelector />
             </div>
         );
     }
