@@ -1,11 +1,15 @@
 .tournament-grid {
     padding-left: 15px;
     display: flex;
+    justify-content: center;
+    min-width: 710px;
+    box-sizing: border-box;
 }
 
 .grid-container {
     width: 200px;
-    margin-right: 30px;
+    display: flex;
+    height: calc(100% - 82px);
 }
 
 .pair-container {
@@ -20,12 +24,35 @@
 .pair-container:after {
     content: '';
     display: block;
+    height: 79px;
+    width: 10px;
+    position: absolute;
+    top: 29px;
+    right: -15px;
+    border-right: 1px solid #f7dba7;
+    border-top: 1px solid #f7dba7;
+}
+
+.pair-container:nth-of-type(even):after {
+    border-top: none;
+    border-right: 1px solid #f7dba7;
+    border-bottom: 1px solid #f7dba7;
+    top: -49px;
+}
+
+.column-container:not(:first-of-type) .pair-container:before {
+    content: '';
+    display: block;
     height: 1px;
     width: 10px;
     background: #f7dba7;
     position: absolute;
     top: 29px;
-    right: -15px;
+    left: -15px;
+}
+
+.column-container:last-of-type .pair-container:after {
+    display: none;
 }
 
 .top-player-container {
@@ -55,7 +82,7 @@
 }
 
 .match-order-header {
-    background: #343434;
+    background: #252525;
     margin-bottom: 30px;
     border: 1px solid #131313;
     box-shadow: 0px 0px 5px inset #131313;
@@ -68,13 +95,13 @@
 }
 
 .pairs {
+    width: 100%;
     display: flex;
     flex-direction: column;
-    min-height: 100%;
     align-items: center;
     flex-flow: wrap;
 }
 
-.grid-container:nth-last-of-type(1n) {
-    background: #000;
+.column-container {
+    margin-right: 30px;
 }
