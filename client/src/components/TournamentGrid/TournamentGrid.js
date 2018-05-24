@@ -118,6 +118,24 @@ const TournamentGrid = (props) => {
                 </div>
             </div>
 
+            <div className='column-container'>
+                <header className='match-order-header'>
+                    <h2>Champion</h2>
+                </header>
+                <div className="grid-container">
+                    <div className="pairs">
+                        <div className='pair-container'>
+                            <div className='top-player-container'>
+                                <span>Игрок первый</span>
+                                <div className='match-result'>
+                                    <FontAwesome name='trophy-alt' />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     );
 }
