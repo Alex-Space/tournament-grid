@@ -3,11 +3,12 @@ import {connect} from 'react-redux';
 import { bindActionCreators } from 'redux';
 import './TopBar.css';
 import DateSelector from '../../components/DateSelector/DateSelector';
+import PropTypes from 'prop-types';
 
 class TopBar extends Component {
 
     getCurrendGrid = () => {
-        switch (this.props.grids.gameTypeSelected) {
+        switch (this.props.gameTypeSelected) {
             case '1 vs 1':
                 return "Один против одного";
             case '2 vs 2':
@@ -32,7 +33,9 @@ class TopBar extends Component {
 }
 
 const mapStateToProps = (state) => {
-    return state;
+    return {
+        gameTypeSelected: state.grids.gameTypeSelected
+    };
 };
 
 const mapDispatchToProps = (dispatch) => {
@@ -40,5 +43,9 @@ const mapDispatchToProps = (dispatch) => {
         
     }, dispatch);
 };
+
+TopBar.propTypes = {
+    gameTypeSelected: PropTypes.string.isRequired
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(TopBar);

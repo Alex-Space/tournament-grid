@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import GameTypeBtn from '../../components/GameTypeBtn/GameTypeBtn';
 import './SidebarHeader.css';
-
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { gameType } from '../../actions';
@@ -13,6 +13,7 @@ class SidebarHeader extends Component {
     }
 
     render() {
+        console.log(this.props.gameTypes);
         return (
             <header className='sidebar-header'>
                 <div className='game-type-container'>
@@ -51,5 +52,10 @@ const mapDispatchToProps = (dispatch) => {
     //     }
     // }
 };
+
+SidebarHeader.propTypes = {
+    gameTypeSelected: PropTypes.string.isRequired,
+    gameTypes: PropTypes.array.isRequired
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(SidebarHeader);

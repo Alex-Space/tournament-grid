@@ -1,7 +1,6 @@
 .tournament-grid {
-    padding-left: 15px;
+    padding: 0 15px;
     display: flex;
-    justify-content: center;
     min-width: 710px;
     box-sizing: border-box;
 }
@@ -104,4 +103,16 @@
 
 .column-container {
     margin-right: 30px;
+}
+
+.column-container:nth-last-child(2) .pair-container:after {
+    border-right: none;
+}
+
+.column-container:last-of-type .pair-container:before {
+    top: 14px;
+}
+
+.column-container:last-of-type .pair-container > div {
+    border-radius: 4px;
 }

@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux';
 import TopBar from '../TopBar/TopBar';
 import TournamentGrid from '../../components/TournamentGrid/TournamentGrid';
 import './MainContentArea.css';
+import PropTypes from 'prop-types';
 
 class MainContentArea extends Component {
     testPlayers = [
@@ -26,7 +27,7 @@ class MainContentArea extends Component {
     ];
 
     getCurrendGrid = () => {
-        switch (this.props.grids.gameTypeSelected) {
+        switch (this.props.gameTypeSelected) {
             case '1 vs 1':
                 return "Один против одного";
             case '2 vs 2':
@@ -45,7 +46,6 @@ class MainContentArea extends Component {
     }
 
     render() {
-        console.log(this.props);
         return (
             <div className='main-content-area'>
                 <TopBar />
@@ -56,7 +56,10 @@ class MainContentArea extends Component {
 }
 
 const mapStateToProps = (state) => {
-    return state;
+    return {
+        gameTypeSelected: state.grids.gameTypeSelected,
+        gameTypes: state.grids.gameTypes
+    }
 };
 
 const mapDispatchToProps = (dispatch) => {
@@ -64,5 +67,10 @@ const mapDispatchToProps = (dispatch) => {
         
     }, dispatch);
 };
+
+MainContentArea.propTypes = {
+    gameTypeSelected: PropTypes.string.isRequired,
+    gameTypes: PropTypes.array.isRequired
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(MainContentArea);
