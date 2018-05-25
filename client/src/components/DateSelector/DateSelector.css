@@ -7,6 +7,7 @@
     margin-right: 5px;
     padding: 3px 5px 2px;
     color: #f7dba7;
+    min-width: 130px;
 }
 
 .date-selector-container select option {

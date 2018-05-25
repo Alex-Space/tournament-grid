@@ -1,7 +1,6 @@
 .tournament-grid {
-    padding: 0 15px;
+    padding: 87px 25px 0;
     display: flex;
-    min-width: 710px;
     box-sizing: border-box;
 }
 
@@ -102,7 +101,8 @@
 }
 
 .column-container {
-    margin-right: 30px;
+    margin-right: 15px;
+    padding-right: 15px;
 }
 
 .column-container:nth-last-child(2) .pair-container:after {

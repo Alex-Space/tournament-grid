@@ -1,10 +1,11 @@
 import {
-    CHANGE_GAME_TYPE
+    CHANGE_GAME_TYPE,
+    GET_GAMES_DATE
 } from '../actions/types';
 
 const initialState = {
     gameTypes: [ '1 vs 1', '2 vs 2', '3 vs 3', '5 vs 5'],
-    gameTypeSelected: '1 vs 1'
+    gameTypeSelected: '1 vs 1' 
 };
 
 export default function(state = initialState, action) {
@@ -13,6 +14,11 @@ export default function(state = initialState, action) {
             return {
                 ...state,
                 gameTypeSelected: action.payload
+            }
+        case GET_GAMES_DATE:
+            return {
+                ...state,
+                gameDate: action.payload
             }
         default:
             return state;

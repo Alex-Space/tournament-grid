@@ -5,6 +5,7 @@ import './TopBar.css';
 import DateSelector from '../../components/DateSelector/DateSelector';
 import PropTypes from 'prop-types';
 
+
 class TopBar extends Component {
 
     getCurrendGrid = () => {
@@ -26,7 +27,7 @@ class TopBar extends Component {
         return (
             <div className='top-bar'>
                 <h2>{this.getCurrendGrid()}</h2>
-                <DateSelector />
+                <DateSelector gameDate={this.props.gameDate} />
             </div>
         );
     }
@@ -34,7 +35,8 @@ class TopBar extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        gameTypeSelected: state.grids.gameTypeSelected
+        gameTypeSelected: state.grids.gameTypeSelected,
+        gameDate: state.grids.gameDate
     };
 };
 

@@ -4,16 +4,16 @@ import './SidebarHeader.css';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { gameType } from '../../actions';
+import { gameType, getGameDate } from '../../actions';
 
 class SidebarHeader extends Component {
 
     setActiveGrid = (el) => {
         this.props.gameType(el);
+        this.props.getGameDate(el);
     }
 
     render() {
-        console.log(this.props.gameTypes);
         return (
             <header className='sidebar-header'>
                 <div className='game-type-container'>
@@ -44,7 +44,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return bindActionCreators({
-        gameType
+        gameType,
+        getGameDate
     }, dispatch);
     // return {
     //     setCurrentGrid: (gameTypeSelected) => {

@@ -1,1 +1,2 @@
 export const CHANGE_GAME_TYPE = 'CHANGE_GAME_TYPE';
+export const GET_GAMES_DATE = 'GET_GAMES_DATE';

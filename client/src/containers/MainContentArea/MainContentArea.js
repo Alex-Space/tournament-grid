@@ -5,26 +5,77 @@ import TopBar from '../TopBar/TopBar';
 import TournamentGrid from '../../components/TournamentGrid/TournamentGrid';
 import './MainContentArea.css';
 import PropTypes from 'prop-types';
+import { getGameDate } from '../../actions';
 
 class MainContentArea extends Component {
-    testPlayers = [
-        {
-            nickname: 'Nixaristix',
-            flag: 'ru',
+    state = {
+        '1 vs 1' : {
+            '01.01.2018': {
+                players: [
+                    {
+                        nickname: 'Nixaristix',
+                        flag: 'ru',
+                    },
+                    {
+                        nickname: 'Norq',
+                        flag: 'ua',
+                    },
+                    {
+                        nickname: 'MeTaN',
+                        flag: 'ru',
+                    },
+                    {
+                        nickname: 'gemeinheit',
+                        flag: 'du',
+                    },
+                    {
+                        nickname: 'galadion',
+                        flag: 'du',
+                    },
+                    {
+                        nickname: 'shady',
+                        flag: 'du',
+                    },
+                    {
+                        nickname: 'EpicFail',
+                        flag: 'ru',
+                    },
+                    {
+                        nickname: 'ShurMur',
+                        flag: 'ru',
+                    },
+                ]
+            },
+            '01.02.2018': {},
+            '01.03.2018': {},
         },
-        {
-            nickname: 'Norq',
-            flag: 'ua',
-        },
-        {
-            nickname: 'MeTaN',
-            flag: 'ru',
-        },
-        {
-            nickname: 'gemeinheit',
-            flag: 'du',
+        '2 vs 2': {
+            '02.01.2018' : {
+                teams: [
+                    [
+                        {
+                            nickname: 'EpicFail',
+                            flag: 'ru',
+                        },
+                        {
+                            nickname: 'ShurMur',
+                            flag: 'ru',
+                        }
+                    ],
+                    [
+                        {
+                            nickname: 'Norq',
+                            flag: 'ua',
+                        },
+                        {
+                            nickname: 'MeTaN',
+                            flag: 'ru',
+                        }
+                    ]
+                ]
+            }
         }
-    ];
+    }
 
     getCurrendGrid = () => {
         switch (this.props.gameTypeSelected) {
@@ -41,15 +92,20 @@ class MainContentArea extends Component {
         }
     }
 
+    // componentWillMount = () => {
+    //     console.log('Получить из базы дефолтные данные по игрокам и типу игры 1vs1');
+    // }
     componentWillMount = () => {
-        console.log('Получить из базы дефолтные данные по игрокам и типу игры 1vs1');
+        this.props.getGameDate(this.props.gameTypeSelected);
     }
 
     render() {
         return (
             <div className='main-content-area'>
-                <TopBar />
-                <TournamentGrid players={this.testPlayers} {...this.props} />
+                <TopBar gameDate={this.props.gameDate}/>
+                <TournamentGrid 
+                    {...this.props}
+                    testState={this.state[this.props.gameTypeSelected]}  />
             </div>
         );
     }
@@ -58,13 +114,14 @@ class MainContentArea extends Component {
 const mapStateToProps = (state) => {
     return {
         gameTypeSelected: state.grids.gameTypeSelected,
-        gameTypes: state.grids.gameTypes
+        gameTypes: state.grids.gameTypes,
+        gameDate: state.grids.gameDate
     }
 };
 
 const mapDispatchToProps = (dispatch) => {
     return bindActionCreators({
-        
+        getGameDate
     }, dispatch);
 };
 
