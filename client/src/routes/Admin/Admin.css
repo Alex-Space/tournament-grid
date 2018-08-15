@@ -1,0 +1,12 @@
+.sidebar-title {
+    font-family: 'Lobster', cursive;
+    padding: 5px 10px 5px 25px;
+    margin: 0;
+    border-bottom: 1px solid #343434;
+    margin-bottom: 10px;
+}
+
+.general-btn {
+    margin: 10px;
+    width: calc(100% - 20px);
+}

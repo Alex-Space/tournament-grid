@@ -1,0 +1,46 @@
+ul.players-list {
+    padding: 0;
+    margin-top: 0;
+}
+
+ul.players-list > li {
+    list-style: none;
+    padding: 7px 5px 7px 20px;
+}
+
+ul.players-list > li:nth-of-type(odd) {
+    background: #343434;
+    border-bottom: 2px solid #1f1f1f;
+    border-right: 1px solid #1f1f1f;
+}
+
+ul.players-list > li:first-of-type {
+    border-top: 2px solid #3c3c3c;
+}
+
+ul.players-list > li:nth-of-type(even) {
+    background: #131313;
+    border-bottom: 2px solid #3c3c3c;
+    box-shadow: inset 3px 0px 10px #0e0e0e;
+}
+
+ul.players-list > li:last-of-type {
+    border-bottom: 2px solid #131313;
+}
+
+.player-nickname {
+    padding-left: 10px;
+}
+
+.players-list .flag-icon {
+    position: relative;
+    top: -1px;
+}
+
+.spinner-container {
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+    position: absolute;
+    top: 200px;
+}

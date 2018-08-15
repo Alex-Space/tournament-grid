@@ -3,12 +3,13 @@ import './GameTypeBtn.css';
 
 const gameTypeBtn = (props) => {
     const isActive = props.isActive ? 'active' : '';
-    const classes = `${isActive} game-type-btn`;
-    
+    const classes = `game-type-btn ${isActive}`;
+    const clickable = props.isFetching ? 'disabled' : '';
+
     return (
-        <div onClick={props.onClick} className={classes}>
+        <button onClick={props.onClick} className={classes} disabled={clickable}>
             {props.gameType}
-        </div>
+        </button>
     )
 };
 

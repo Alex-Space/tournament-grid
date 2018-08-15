@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import Sidebar from './sidebar';
-import SidebarHeader from '../SidebarHeader/SidebarHeader';
-import SidebarPlayers from '../../components/SidebarPlayers/SidebarPlayers';
 
-class modifiedSidebar extends Component {
+class ModifiedSidebar extends Component {
     constructor(props) {
         super(props);
 
@@ -19,15 +17,9 @@ class modifiedSidebar extends Component {
     }
 
     render() {
-        const sidebarContent = (
-            <div>
-              <SidebarHeader />
-              <SidebarPlayers />
-            </div>
-        );
         return (
             <Sidebar 
-              sidebar={sidebarContent}
+              sidebar={this.props.sidebarContent}
               open={this.state.sidebarOpen}
               onSetOpen={this.onSetSidebarOpen}
               docked={true}>
@@ -37,4 +29,4 @@ class modifiedSidebar extends Component {
     }
 };
 
-export default modifiedSidebar;
+export default ModifiedSidebar;

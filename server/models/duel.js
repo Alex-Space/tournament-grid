@@ -1,8 +1,12 @@
 const mongoose = require('mongoose');
 
 const duelSchema = mongoose.Schema({
-    date: {
-        type: Date,
+    gameName: {
+        type: String,
+        required: true
+    },
+    gameDate: {
+        type: String,
         required: true
     },
     players: [

@@ -1,0 +1,18 @@
+.general-btn {
+    font-family: 'Lobster', cursive;
+    background: #a94444;
+    color: #f7dba7;
+    font-size: 16px;
+    border: 0;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.general-btn:hover {
+    background: #8a3737;
+}
+
+.general-btn:active,
+.general-btn:focus {
+    outline: none;
+}

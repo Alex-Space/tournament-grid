@@ -4,30 +4,40 @@ import { bindActionCreators } from 'redux';
 import './TopBar.css';
 import DateSelector from '../../components/DateSelector/DateSelector';
 import PropTypes from 'prop-types';
-
+import { 
+    setCurrentGameDate, 
+    getPlayers,
+    clearGamePlayers } from '../../actions';
 
 class TopBar extends Component {
 
-    getCurrendGrid = () => {
-        switch (this.props.gameTypeSelected) {
-            case '1 vs 1':
-                return "Один против одного";
-            case '2 vs 2':
-                return "Двое против двух";
-            case '3 vs 3':
-                return "Трое против трех";
-            case '5 vs 5':
-                return "Пять против пяти";
-            default:
-                return 'Top Bar'
+    componentDidUpdate = (prevProps) => {
+        
+        if ( this.props.gameDate !== undefined &&
+            prevProps.gameDate !== undefined) {
+                
+            if (prevProps.gameDate.every((v,i)=> v !== this.props.gameDate[i])) {
+                const select = document.querySelector('.date-selector-container select');
+                this.props.setCurrentGameDate(select.value);
+                
+                // Reset value in select to default after toggle game types
+                select.selectedIndex = 0;
+            }
+        }
+        
+        if (this.props.currentGameDate === undefined) {
+            this.props.setCurrentGameDate(this.props.gameDate[0]);
         }
     }
 
+
+
+
+    
     render() {
         return (
             <div className='top-bar'>
-                <h2>{this.getCurrendGrid()}</h2>
-                <DateSelector gameDate={this.props.gameDate} />
+                {this.props.children}
             </div>
         );
     }
@@ -35,19 +45,23 @@ class TopBar extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        gameTypeSelected: state.grids.gameTypeSelected,
-        gameDate: state.grids.gameDate
+        gameType: state.grids.gameTypeSelected,
+        gameDate: state.grids.gameDate,
+        currentGameDate: state.grids.currentSelectedGameDate,
+        players: state.grids.players
     };
 };
 
 const mapDispatchToProps = (dispatch) => {
     return bindActionCreators({
-        
+        setCurrentGameDate,
+        getPlayers,
+        clearGamePlayers
     }, dispatch);
 };
 
 TopBar.propTypes = {
-    gameTypeSelected: PropTypes.string.isRequired
+    gameType: PropTypes.string.isRequired
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(TopBar);
